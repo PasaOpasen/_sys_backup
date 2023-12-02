@@ -7,7 +7,7 @@ target=storage
 
 mkdir -p $target
 
-echo "Perform copying..."
+echo "Perform copying to $target ..."
 cat cp-list.txt | grep -v -E '^#' | xargs -I@ bash -c "cp --archive --update --parents -v @ $target"
 
 

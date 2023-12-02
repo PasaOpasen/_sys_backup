@@ -33,6 +33,7 @@ echo $passwd > password.txt
 
 make venv
 
+make extract
 
 
 
