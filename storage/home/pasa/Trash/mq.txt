@@ -1,0 +1,30 @@
+
+
+
+
+dnf install -y bc passwd shadow-utils
+
+cp -r /shared /ss
+cd /ss
+tar -xvf 9.3.4.0-IBM-MQ-Advanced-for-Developers-LinuxX64.tar.gz
+cd MQServer/
+./mqlicense.sh -text_only -accept
+
+
+cp IBM-MQ.repo /etc/yum.repos.d/
+
+dnf install MQSeriesSDK MQSeriesClient
+
+
+
+
+yum -y install bash bc ca-certificates file findutils gawk glibc-common grep passwd procps-ng sed shadow-utils tar util-linux which wget
+wget -T5 -q -O mqadv_dev921_linux_x86-64.tar.gz https://public.dhe.ibm.com/ibmdl/export/pub/software/websphere/messaging/mqadv/mqadv_dev921_linux_x86-64.tar.gz
+
+tar -zxvf mqadv_dev921_linux_x86-64.tar.gz
+
+cd MQServer
+
+./mqlicense.sh -text_only -accept
+
+rpm -Uvh MQSeriesAMQP-*.rpm MQSeriesAMS-*.rpm MQSeriesBCBridge-*.rpm MQSeriesClient-*.rpm MQSeriesGSKit-*.rpm MQSeriesJava-*.rpm MQSeriesJRE-*.rpm MQSeriesRuntime-*.rpm MQSeriesSamples-*.rpm MQSeriesSDK-*.rpm MQSeriesServer-*.rpm MQSeriesSFBridge-*.rpm MQSeriesXRService-*.rpm

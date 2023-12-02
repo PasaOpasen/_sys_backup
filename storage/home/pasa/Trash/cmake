@@ -1,0 +1,1 @@
+$env:DCMAKE_TOOLCHAIN_FILE='C:\ProgramData\vcpkg\scripts\buildsystems\vcpkg.cmake'; pip install python-poppler==0.2.2;$env:DCMAKE_TOOLCHAIN_FILE=''
