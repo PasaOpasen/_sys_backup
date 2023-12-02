@@ -1,0 +1,5 @@
+
+trust anchor russian_trusted_*
+update-ca-trust
+curl -vvv https://rosreestr.gov.ru/
+

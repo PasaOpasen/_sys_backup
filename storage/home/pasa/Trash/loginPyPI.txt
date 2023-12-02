@@ -1,0 +1,4 @@
+
+PyPI token login:
+user: __token__
+pass: ...

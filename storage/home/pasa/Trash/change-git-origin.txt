@@ -1,0 +1,8 @@
+
+git remote rename gitlab old-gitlab
+git remote add origin ...
+
+git pull origin master
+git push -u origin --all
+git push --tags
+
