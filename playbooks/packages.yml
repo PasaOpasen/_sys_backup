@@ -41,7 +41,7 @@
 
               - terminator
               - tilix
-              
+
             state: present
         
         - name: Install Python deps
@@ -107,4 +107,5 @@
               - postman
               - remmina
               - slack
+              - heidisql-wine
 
