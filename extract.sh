@@ -12,5 +12,5 @@ mkdir -p $target
 echo "Perform copying from $(realpath $src) to $(realpath $target) ..."
 
 cd $src
-find . -type f | xargs -I@ bash -c "cp --archive --update --parents -v @ $target"
+find . -type f | xargs -I@ bash -c "cp --update --parents -v @ $target"
 
