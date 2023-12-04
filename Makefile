@@ -16,21 +16,22 @@ help: ##@Miscellaneous Show this help
 	@echo -e "\nWritten by $(SCRIPT_AUTHOR), version $(SCRIPT_VERSION)"
 
 
-venv:
+archive:  ##@Packing update storage files
+	bash archive.sh
+
+commit:   ##@Packing commit changes
+	bash commit.sh
+
+cron:     ##@Packing add cron job for storage files auto updates
+	bash add-cron.sh	
+
+
+venv:    ##@Unpacking create necessary venv to call Ansible
 	python3 -m venv venv
 	source venv.sh && pip install -r requirements.txt
 
-archive:
-	bash archive.sh
-
-commit:
-	bash commit.sh
-
-
-extract:
+extract: ##@Unpacking perform storage files extraction
 	bash extract.sh 
 
-cron:
-	bash add-cron.sh
 
 
