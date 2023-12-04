@@ -38,6 +38,10 @@
               - python3
               - python3-pip
               - ansible
+
+              - terminator
+              - tilix
+              
             state: present
         
         - name: Install Python deps
