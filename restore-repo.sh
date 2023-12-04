@@ -3,7 +3,7 @@
 # script to restore main system 
 #
 
-set -e -x
+set -e
 
 read -s -p 'Write current sudo password: ' passwd
 
@@ -11,7 +11,7 @@ echo $passwd | sudo -S -v && echo "OK"
 
 echo $passwd | sudo -S dnf install -y openssh git python3 python3-pip make
 
-ssh-keygen 
+ssh-keygen || true
 
 read -n 1 -p 'Copy ssh keys to GitHub MANUALLY and press any key...'
 
