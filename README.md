@@ -2,7 +2,7 @@
 To get data:
 ```sh
 
-curl -O https://github.com/PasaOpasen/_sys_backup/blob/main/restore-repo.sh
+curl -O https://raw.githubusercontent.com/PasaOpasen/_sys_backup/main/restore-repo.sh
 bash restore-repo.sh
 
 ```
