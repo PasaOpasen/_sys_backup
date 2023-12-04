@@ -4,7 +4,7 @@
 
 if [ -n "$(git status -s)" ]
 then
-    git status 
+    git status -s
     git add .
     git commit -m "$(date +"%Y-%m-%d-%H-%M-%S")"
     git push 
