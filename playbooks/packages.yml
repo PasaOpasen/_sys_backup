@@ -41,6 +41,7 @@
 
               - terminator
               - tilix
+              - telegram-desktop
 
             state: present
         
