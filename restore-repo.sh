@@ -15,7 +15,7 @@ else
     echo $passwd | sudo -S -v && echo "OK"
 
     # save password for ansible
-    echo $passwd > password.txt
+    echo -n $passwd > password.txt
 
 fi
 
@@ -41,7 +41,7 @@ else
         repo_path=$rp
     fi
 
-    git clone https://github.com/PasaOpasen/_sys_backup ${repo_path}
+    git clone git@github.com:PasaOpasen/_sys_backup.git ${repo_path}
 
     cd ${repo_path}
 
