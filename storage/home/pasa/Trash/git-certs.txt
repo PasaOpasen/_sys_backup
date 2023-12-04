@@ -1,0 +1,6 @@
+
+git config --global http.sslCAInfo /home/pasa/Job/git-certs/github-com.pem
+
+git config --global http.sslCAInfo /home/pasa/Job/git-certs/gitlab-com.pem
+
+git config --global credential.helper store
