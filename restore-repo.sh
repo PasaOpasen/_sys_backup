@@ -3,7 +3,7 @@
 # script to restore main system 
 #
 
-set -e
+set -e -x
 
 read -s -p 'Write current sudo password: ' passwd
 
@@ -31,9 +31,13 @@ cd ${repo_path}
 # save password for ansible
 echo $passwd > password.txt
 
+make extract
+
 make venv
 
-make extract
+source venv.sh
+ap playbooks/packages.yml 
+ap playbooks/other.yml 
 
 
 

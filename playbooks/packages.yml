@@ -1,0 +1,75 @@
+
+- name: Install server necessary deps and make other preparations 
+  hosts: all
+  gather_facts: true
+  become: true
+  become_user: "{{ ansible_user }}"
+
+  tasks:
+
+    - name: Install base packages
+      when: update_packages
+      become_user: root
+      block:
+        - name: Upgrade all packages
+          ansible.builtin.dnf:
+            name: "*"
+            state: latest
+
+        - name: Install additional packages
+          ansible.builtin.dnf:
+            name: 
+              - dnf-plugins-core
+              - bash-completion
+              - nano
+              - make
+              - screen
+              - mc
+              - bc
+              - htop 
+              - ncdu
+              - rsync 
+              - git
+              - git-lfs
+              - net-tools
+              - bind-utils
+              - openssl
+              - java-latest-openjdk-headless.x86_64  # necessary for keytool
+              - python3
+              - python3-pip
+              - ansible
+            state: present
+        
+        - name: Install Python deps
+          ansible.builtin.pip:
+            name:
+              - paramiko
+
+        - name: Install additional pip packages
+          when: pip_packages is defined
+          ansible.builtin.pip:
+            name: "{{ pip_packages }}"      
+    
+    - name: Install Docker
+      when: install_docker and ansible_facts.services['docker.service'] is undefined
+      become_user: root
+      block:
+        - name: Add repo docker-ce
+          shell:
+            cmd: dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+
+        - name: Install Docker deps
+          ansible.builtin.dnf:
+            name:
+              - docker-ce 
+              - docker-ce-cli 
+              - containerd.io 
+              - docker-buildx-plugin 
+              - docker-compose-plugin
+            state: present
+
+        - name: Enable and restart Docker service
+          ansible.builtin.systemd:
+            name: docker
+            enabled: true
+            state: restarted
