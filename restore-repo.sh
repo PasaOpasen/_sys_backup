@@ -5,7 +5,7 @@
 
 set -e
 
-if [ -f 'password.txt' ] && $(cat password.txt | sudo -S -v &> /dev/null)
+if [ -f password.txt ] && $(cat password.txt | sudo -S -v &> /dev/null)
 then
     echo "Found password file"
     passwd="$(cat password.txt)"
