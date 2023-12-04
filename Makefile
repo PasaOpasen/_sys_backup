@@ -8,6 +8,9 @@ venv:
 archive:
 	bash archive.sh
 
+commit:
+	bash commit.sh
+
 extract:
 	bash extract.sh 
 
