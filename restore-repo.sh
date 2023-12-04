@@ -14,6 +14,9 @@ else
 
     echo $passwd | sudo -S -v && echo "OK"
 
+    # save password for ansible
+    echo $passwd > password.txt
+
 fi
 
 echo $passwd | sudo -S dnf install -y openssh git python3 python3-pip make
@@ -43,9 +46,6 @@ else
     cd ${repo_path}
 
 fi
-
-# save password for ansible
-echo $passwd > password.txt
 
 make extract
 
