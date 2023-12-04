@@ -10,7 +10,7 @@ cat <<END | sudo tee $file
 SHELL=/bin/bash
 MAILTO=""
 
-* * * * * su $USER -c "cd $PWD && ./cron-script.sh" >> /var/log/sys-backup.log
+1 */2 * * * su $USER -c "cd $PWD && ./cron-script.sh" >> /var/log/sys-backup.log
 END
 
 sudo chmod 644 $file
