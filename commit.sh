@@ -2,9 +2,11 @@
 # commits existing changes
 #
 
-if [ -n "$(git status -s)" ]
+status="$(git status -s)"
+
+if [ -n "$status" ]
 then
-    git status -s
+    echo "$status"
     git add .
     git commit -m "$(date +"%Y-%m-%d-%H-%M-%S")"
     git push 
